@@ -33,7 +33,7 @@ def recommend(movie_name, movies_data, similarity, top_n=TOP_N):
     sorted_similar_movies = sorted(similarity_score, key=lambda x: x[1], reverse=True)
 
     results = []
-    for movie in sorted_similar_movies[1 : top_n + 1]:  # skip index 0, it's the movie itself
+    for movie in sorted_similar_movies[0 : top_n + 1]:  # skip index 0, it's the movie itself
         idx = movie[0]
         row = movies_data[movies_data.index == idx].iloc[0]
         results.append(row)
